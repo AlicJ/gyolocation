@@ -32,17 +32,13 @@ def toUserList():
     #     print (e)
     return userList
 
-@app.route('/_getUsers')
-def getUsers():
-    return jsonify(userList)
 
 @app.route('/')
 def index():
     return render_template('index.html')
 
-@app.route('/_add_numbers')
-def add_numbers():
-
+@app.route('/_getYos')
+def getYos():
     return jsonify(result=[e.serialize() for e in userList])
 
 @app.route("/yo/")
