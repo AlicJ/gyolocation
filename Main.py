@@ -27,7 +27,6 @@ def toUserList():
     for line in f:
         line.rstrip()
         split = line.split()
-
         userList.append(User(split[0],Decimal(split[1]),Decimal(split[2])))
     # for e in userList:
     #     print (e)
@@ -43,9 +42,7 @@ def index():
 
 @app.route('/_add_numbers')
 def add_numbers():
-    print (userList)
-    a = request.args.get('a', 0, type=int)
-    b = request.args.get('b', 0, type=int)
+
     return jsonify(result=[e.serialize() for e in userList])
 
 @app.route("/yo/")
