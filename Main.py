@@ -16,9 +16,9 @@ class User():
         self.lon = lon
     def serialize(self):
         return {
-            'username': self.name,
-            'latitude': self.lat,
-            'longitude': self.lon
+            'usr': self.name,
+            'lat': self.lat,
+            'lng': self.lon
         }
 
 #  user = User(username, Decimal(latitude), Decimal(longitude))
@@ -26,6 +26,7 @@ def toUserList():
     f = open ("DATA.txt", 'r')
     for line in f:
         split = line.split()
+        #split[2] = 
         userList.append(User(split[0],Decimal(split[1]),Decimal(split[2])))
 
     return userList
@@ -43,7 +44,7 @@ def add_numbers():
     print (userList)
     a = request.args.get('a', 0, type=int)
     b = request.args.get('b', 0, type=int)
-    return jsonify(result=[1,2,3])
+    return jsonify(result=[e.serialize() for e in userList])
 
 @app.route("/yo/")
 def yo():
