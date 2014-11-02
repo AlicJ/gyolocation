@@ -64,11 +64,13 @@
 			position: myLatlng,
 			title: "ANAKIN",
 			animation: google.maps.Animation.DROP,
+			icon: icon
 		});
 		var newList = [];
 		var prevList = [];
 		var ajaxCounter = 0;
 		var deltaList = [];
+		var icon = 'Yo.png';
 
 		google.maps.event.addDomListener(window, 'load', initialize);
 
