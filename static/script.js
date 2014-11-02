@@ -1,7 +1,7 @@
 		function initialize() {
 			var mapOptions = {
-			center: { lat: 41.316395, lng: -72.922630},
-			zoom: 12
+			center: { lat: 42.100790, lng: -76.800564},
+			zoom: 7
 			};
 			map = new google.maps.Map(document.getElementById('map-canvas'), mapOptions);
 		}
@@ -9,7 +9,7 @@
 		function getYo() {
 			time = new Date().getTime();
 
-			$.getJSON('/_add_numbers', {
+			$.getJSON('/_getYos', {
 		        // a: $('input[name="a"]').val(),
 		        // b: $('input[name="b"]').val()
 		    }, function(data) {
