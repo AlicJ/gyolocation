@@ -34,7 +34,7 @@
 				// console.log(yo);
 				setTimeout(function(){
 					addMarker(yo);
-				}, 200)
+				}, 600)
 			});
 		}
 
