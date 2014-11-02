@@ -66,7 +66,8 @@
 			var myLatlng = new google.maps.LatLng(data.lat, data.lng);
 			var marker = new google.maps.Marker({
 				position: myLatlng,
-				title: data.usr
+				title: data.usr,
+				animation: google.maps.Animation.DROP,
 			});
 			marker.setMap(map);
 		}
@@ -82,7 +83,8 @@
 		var myLatlng = new google.maps.LatLng( 41.316395, -72.922630);
 		var marker = new google.maps.Marker({
 			position: myLatlng,
-			title: "ANAKIN"
+			title: "ANAKIN",
+			animation: google.maps.Animation.DROP,
 		});
 		var prevList;
 		var ajaxCounter = 0;
