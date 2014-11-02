@@ -32,7 +32,9 @@
 			console.log(data);
 			$.each(data, function(index, yo) {
 				// console.log(yo);
-				addMarker(yo);
+				setTimeout(function(){
+					addMarker(yo);
+				}, 200)
 			});
 		}
 
