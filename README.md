@@ -2,7 +2,8 @@ gyolocation
 ===========
 This is an application to display where user's who Yo Gyolocation are doing it from.
 
-RUNNING
+Requirments
+======
 environments: Python 2.7, virtualenv
 Dependencies: Flask, requests
 
