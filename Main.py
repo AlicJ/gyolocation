@@ -9,7 +9,7 @@ YO_API_TOKEN = config.DEVKEY
 app = Flask(__name__)
 userList = []
 
-def User():
+class User():
     def __init__(self, name="", lat=0, lon=0):
         self.name = name
         self.lat = lat
@@ -54,5 +54,5 @@ def yo():
 
 if __name__ == "__main__":
     app.debug = True
-    touserList()
+    toUserList()
     app.run(host="0.0.0.0", port=5000)
