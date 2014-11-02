@@ -39,14 +39,21 @@
 		        a: $('input[name="a"]').val(),
 		        b: $('input[name="b"]').val()
 		    }, function(data) {
-		    	sample = data.result;
-		        drawYo(data.result);
+		    	if(ajaxCounter == 0){
+		    		prevList = data.result;
+		    		ajaxCounter++;
+		    	}else{
+		    		var newList = data.result;
+		    		deltaList = cutList(prevList, newList);
+		    		prevList = newList;
+		    	}
+		        drawYo(deltaList);
 		    });
 		}
 
 		function drawYo(data){
 			$.each(data, function(index, yo) {
-				console.log(yo);
+				// console.log(yo);
 				addMarker(yo);
 			});
 		}
@@ -61,24 +68,32 @@
 			marker.setMap(map);
 		}
 
-
+		function cutList(original, present){
+			// assume the new list is always bigger/the same than the new one
+			newPresent = present.slice(original.length, present.length);
+			return newPresent;
+		}
 
 
 		var map;
 		var myLatlng = new google.maps.LatLng( 41.316395, -72.922630);
 		var marker = new google.maps.Marker({
 			position: myLatlng,
-			title: "experiment!"
+			title: "ANAKIN"
 		});
-		var sample;
+		var prevList;
+		var ajaxCounter = 0;
+		var deltaList;
 
 		google.maps.event.addDomListener(window, 'load', initialize);
 
 		$(document).ready(function(){
 			setTimeout(function(){
 				marker.setMap(map);
-				console.log('marker!')
-				getYo();
+				// console.log('marker!')
+				setInterval(function(){
+					getYo();
+				}, 2500)
 			},3000);
 			
 		});
