@@ -51,7 +51,7 @@
 			if(present.length > original.length)
 				delta = present.slice(original.length, present.length);
 			else
-				delta = present.slice(present.length, original.length);
+				delta = original.slice(present.length, original.length);
 			return delta;
 		}
 
