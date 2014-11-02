@@ -10,8 +10,8 @@
 			time = new Date().getTime();
 
 			$.getJSON('/_add_numbers', {
-		        a: $('input[name="a"]').val(),
-		        b: $('input[name="b"]').val()
+		        // a: $('input[name="a"]').val(),
+		        // b: $('input[name="b"]').val()
 		    }, function(data) {
 		    	if(ajaxCounter == 0){
 		    		prevList = data.result;
@@ -60,9 +60,9 @@
 			title: "ANAKIN",
 			animation: google.maps.Animation.DROP,
 		});
-		var prevList;
+		var prevList = [];
 		var ajaxCounter = 0;
-		var deltaList;
+		var deltaList = [];
 
 		google.maps.event.addDomListener(window, 'load', initialize);
 
