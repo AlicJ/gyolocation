@@ -9,9 +9,6 @@
 		function getYo() {
 			time = new Date().getTime();
 
-			$.getJSON('/_getYos', {
-		        // a: $('input[name="a"]').val(),
-		        // b: $('input[name="b"]').val()
 		    }, function(data) {
 		    	if(ajaxCounter == 0){
 		    		prevList = data.result;
