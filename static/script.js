@@ -15,9 +15,10 @@
 		    }, function(data) {
 		    	if(ajaxCounter == 0){
 		    		prevList = data.result;
+		    		deltaList = cutList(prevList, newList);
 		    		ajaxCounter++;
 		    	}else{
-		    		var newList = data.result;
+		    		newList = data.result;
 		    		deltaList = cutList(prevList, newList);
 		    		prevList = newList;
 		    	}
@@ -60,6 +61,7 @@
 			title: "ANAKIN",
 			animation: google.maps.Animation.DROP,
 		});
+		var newList = [];
 		var prevList = [];
 		var ajaxCounter = 0;
 		var deltaList = [];
