@@ -33,41 +33,29 @@
 
 		function getYo() {
 			time = new Date().getTime();
-			// $.ajax({
-			// 	url: '/path/to/file',
-			// 	type: 'GET',
-			// 	dataType: 'JSOn',
-			// 	data: {
-			// 		auth: 'geyolocation',
-			// 		timestamp: time 
-			// 	},
-			// })
-			// .done(function() {
-			// 	console.log("success");
-			// })
-			// .fail(function() {
-			// 	console.log("error");
-			// })
-			// .always(function() {
-			// 	console.log("complete");
-			// });
-
-			// $.getJSON('/_getUsers', {
-				
-			// }, function(data) {
-			// 	console.log(data);
-			// });
 
 			$.getJSON('/_add_numbers', {
 		        a: $('input[name="a"]').val(),
 		        b: $('input[name="b"]').val()
 		    }, function(data) {
-		        console.log(data);
+		        drawYo(data);
 		    });
 		}
 
+		function drawYo(data){
+			$.each(data, function(index, yo) {
+				addMarker(yo);
+			});
+		}
 
-
+		function addMarker(marker){
+			var myLatlng = new google.maps.LatLng(marker.lat, marker.lng);
+			var marker = new google.maps.Marker({
+				position: myLatlng,
+				title: marker.usr
+			});
+			marker.setMap(map);
+		}
 
 
 
@@ -85,6 +73,7 @@
 			setTimeout(function(){
 				marker.setMap(map);
 				console.log('marker!')
+				getYo();
 			},3000);
 			
 		});
