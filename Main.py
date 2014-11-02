@@ -59,7 +59,7 @@ def yo():
     longitude = split[1]
 
     f = open ('DATA.txt', 'a')
-    print (username + " " + latitude + " " + longitude + "\n", file=f)
+    print (username + " " + latitude + " " + longitude, file=f)
     userList.append(User(username, Decimal(latitude), Decimal(longitude)))
     # Yo the result back to the user
     requests.post("http://api.justyo.co/yo/", data={'api_token': YO_API_TOKEN, 'username': username, 'link': 'GOOGLEMAPSLINK'})
