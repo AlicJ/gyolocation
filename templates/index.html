@@ -44,15 +44,17 @@
 
 		function drawYo(data){
 			$.each(data, function(index, yo) {
+				console.log(yo);
 				addMarker(yo);
 			});
 		}
 
-		function addMarker(marker){
-			var myLatlng = new google.maps.LatLng(marker.lat, marker.lng);
+		function addMarker(data){
+			console.log(data)
+			var myLatlng = new google.maps.LatLng(data.lat, data.lng);
 			var marker = new google.maps.Marker({
 				position: myLatlng,
-				title: marker.usr
+				title: data.usr
 			});
 			marker.setMap(map);
 		}
