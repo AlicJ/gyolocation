@@ -48,9 +48,11 @@
 		}
 
 		function cutList(original, present){
-			// assume the new list is always bigger/the same than the new one
-			newPresent = present.slice(original.length, present.length);
-			return newPresent;
+			if(present.length > original.length)
+				delta = present.slice(original.length, present.length);
+			else
+				delta = present.slice(present.length, original.length);
+			return delta;
 		}
 
 
