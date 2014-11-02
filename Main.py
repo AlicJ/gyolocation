@@ -25,10 +25,12 @@ class User():
 def toUserList():
     f = open ("DATA.txt", 'r')
     for line in f:
+        line.rstrip()
         split = line.split()
-        #split[2] = 
-        userList.append(User(split[0],Decimal(split[1]),Decimal(split[2])))
 
+        userList.append(User(split[0],Decimal(split[1]),Decimal(split[2])))
+    # for e in userList:
+    #     print (e)
     return userList
 
 @app.route('/_getUsers')
@@ -57,7 +59,7 @@ def yo():
     longitude = split[1]
 
     f = open ('DATA.txt', 'a')
-    print (username + " " + latitude + " " + longitude, file=f)
+    print (username + " " + latitude + " " + longitude + "\n", file=f)
     userList.append(User(username, Decimal(latitude), Decimal(longitude)))
     # Yo the result back to the user
     requests.post("http://api.justyo.co/yo/", data={'api_token': YO_API_TOKEN, 'username': username, 'link': 'GOOGLEMAPSLINK'})
