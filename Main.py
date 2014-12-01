@@ -55,7 +55,7 @@ def yo():
     print (username + " " + latitude + " " + longitude, file=f)
     userList.append(User(username, Decimal(latitude), Decimal(longitude)))
     # Yo the result back to the user
-    requests.post("http://api.justyo.co/yo/", data={'api_token': YO_API_TOKEN, 'username': username, 'link': 'http://432066f2.ngrok.com/'})
+    requests.post("http://api.justyo.co/yo/", data={'api_token': YO_API_TOKEN, 'username': username, 'link': 'http://9d4d996.ngrok.com'})
 
     return 'OK'
 
