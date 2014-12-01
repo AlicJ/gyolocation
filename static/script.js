@@ -10,8 +10,6 @@
 			time = new Date().getTime();
 
 			$.getJSON('/_getYos', {
-		        // a: $('input[name="a"]').val(),
-		        // b: $('input[name="b"]').val()
 		    }, function(data) {
 		    	if(ajaxCounter == 0){
 		    		prevList = data.result;
@@ -22,14 +20,12 @@
 		    		deltaList = cutList(prevList, newList);
 		    		prevList = newList;
 		    	}
-		    	console.log(prevList);
-		    	console.log(deltaList);
 		        drawYo(deltaList);
 		    });
 		}
 
 		function drawYo(data){
-			console.log(data);
+			// console.log(data);
 			$.each(data, function(index, yo) {
 				// console.log(yo);
 				setTimeout(function(){
@@ -39,7 +35,7 @@
 		}
 
 		function addMarker(data){
-			console.log(data)
+			// console.log(data)
 			var myLatlng = new google.maps.LatLng(data.lat, data.lng);
 			var marker = new google.maps.Marker({
 				position: myLatlng,
@@ -76,7 +72,7 @@
 
 		$(document).ready(function(){
 			setTimeout(function(){
-				marker.setMap(map);
+				// marker.setMap(map);
 				// console.log('marker!')
 				setInterval(function(){
 					getYo();
